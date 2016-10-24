@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+class Data{
+	private int n;
+        public int temp;
+        protected int[] data;	
+    public final void temp(int[] nilai,int n){
+	
+	  this.n=n;
+          for(int i=0;i<n-1;i++){ 
+	    for(int j=0;j<n-i-1;j++){
+                
+	          if(nilai[j]>nilai[j+1]){
+	           	  temp = nilai[j];
+	                  nilai[j] = nilai[j+1];
+                          nilai[j+1] = temp;
+	           }
+	      }
+	
+	}
+}
+	
+}
+
+class cetak extends Data{
+	int i;
+    public cetak(int[] nilai){
+	   this.data = nilai;
+	}
+	public cetak(){
+}
+	
+public void cetakData(int[] data,int n){
+		
+        System.out.print("\noutput = ");
+		
+        for (i=0;i<n;i++){
+			
+        System.out.print(data[i]+" ");
+	}
+     }
+}
+
+public class JavaAppkication10{
+    public static void main(String[] args){
+    	
+    	Scanner input = new Scanner(System.in);
+        int i,j;
+        int jumlah_data;
+        //#objek 1
+    	cetak Nilai = new cetak();
+         System.out.print("Input Jumlah Data = ");
+         jumlah_data=input.nextInt();
+        int[] data=new int[jumlah_data];
+        
+            for (i=0;i<jumlah_data;i++){
+            
+    	          System.out.print("input "+(i+1)+" = ");
+    	          data[i]=input.nextInt();
+            }
+    	
+    
+    	Nilai.temp(data,jumlah_data);
+    	Nilai.cetakData(data,jumlah_data);
+    }
+}
